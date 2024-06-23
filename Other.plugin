@@ -1,6 +1,6 @@
 #!name = Script/Cookie
-#!desc = 过滤微博广告及去除各部分推广模块
-#!openUrl = Script/Cookie
+#!desc = Script/Cookie
+#!openUrl = 
 #!author = ffddh
 #!homepage = https://github.com/ffddh
 #!icon = https://github.com/luestr/IconResource/blob/main/App_icon/120px/Loon.png
