@@ -1,0 +1,36 @@
+#!name = Script/Cookie
+#!desc = 过滤微博广告及去除各部分推广模块
+#!openUrl = Script/Cookie
+#!author = ffddh
+#!homepage = https://github.com/ffddh
+#!icon = https://github.com/luestr/IconResource/blob/main/App_icon/120px/Loon.png
+#!date = 2024-06-23
+
+[Rule]
+USER-AGENT,KWPlayer*,PROXY
+DOMAIN-SUFFIX,kuwo.cn,PROXY
+
+[Script]
+http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsga, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js, requires-body=true, timeout=10, tag=微信公众号去广告
+http-response https://api.revenuecat.com/v1/(receipts|subscribers)/* script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/PureLibro.js, timeout=10, tag=PureLibro
+http-response ^https?:\/\/api\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/Revenuecat.js, timeout=10, tag=Revenuecat系列修改
+http-request ^https?:\/\/api\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/Revenuecat.js, timeout=10, tag=Revenuecat系列清理
+http-response ^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js, timeout=10, tag=Revenuecat解锁系列
+http-request ^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js, timeout=10, tag=Revenuecat解锁系列
+http-response ^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$ script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/iTunes.js, timeout=10, tag=iTunes解锁系列
+http-response ^https?:\/\/api\.meiease\.cn\/shop\/subscription\/(validate|apple\/purchases) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/picsart.js, timeout=10, tag=Picsart美易
+http-response ^https:\/\/(api|community)\.meiyan\.com\/(vip|v\d)\/(user_center|user_info|user\/(.*?)) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/myxj.js, timeout=10, tag=美颜相机
+http-response ^https?://(api|h5).xiuxiu.meitu.com/(?!(v\d/feed/|v\d/search/|v\d/channel/)) script-path=https://raw.githubusercontent.com/githubdulong/Script/master/Mtxx.js, timeout=10, tag=美图秀秀
+http-response ^https?:\/\/drive.*\.quark\.cn\/.+\/clouddrive\/(member.+|distribute\/detail.+|capacity\/growth\/info) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/kuake.js, timeout=10, tag=夸克
+http-response ^https?:\/\/ssl-api\.itranslateapp\.com\/accounts\/.+\/(subscriptions\/verify|marketing\/consent\/status) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/itranslate.js, timeout=10, tag=iTranslate翻译
+http-response ^(?!.*img).*?kuwo\.cn(/vip|/openapi)?(/enc|/v[\d]/(user/vip\?(vers|apiVersion|platform|op\=ui|_t)|theme\?op=gd|sysinfo\?op=getRePayAndDoPayBoxNew|api(/pay)?/((user/personal/)?user/info|payInfo/kwplayer/payMiniBar|advert/(myPage|iListen|album))|album/(adBar|-myRec/vipMusic-))|/kuwopay/vip-tab/setting|/(audioApi/)?a\.p($|\?op\=getvip|.*?ptype\=vip)|/mobi\.s\?f\=kwxs|/music\.pay\?newver\=3$|/(EcomResource|(Mobile)?Ad)Serv(er|ice)) script-path=https://napi.ltd/script/Worker/KuWo.js, requires-body=true, timeout=60, tag=酷我音乐, img-url=https://file.napi.ltd/Static/Image/KuWo.png
+http-request ^https:\/\/(api\.m|me-api|ms\.jr)\.jd\.com\/(client\.action\?functionId=signBean|user_new\/info\/GetJDUserInfoUnion\?|gw\/generic\/hy\/h5\/m\/appSign\?) script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js, requires-body=true, timeout=10, tag=获取京东Cookie
+http-request https:\/\/api\.m\.jd\.com\/\?.*functionId=queryJDUserInfo script-path=https://raw.githubusercontent.com/dompling/Script/master/jd/JD_extra_cookie.js, timeout=10, tag=获取京东Cookie
+http-request https://glados.rocks/api/user/checkin script-path=https://gist.githubusercontent.com/ddgksf2013/32b3d37d78433a34370cbfb69780160d/raw/glados.js, timeout=10, tag=Glados获取Cookie
+http-response ^https:\/\/drive-pc\.quark\.cn\/1\/clouddrive\/file\/sort script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=夸克网盘获取token
+http-response ^https:\/\/coral2\.quark\.cn\/task\/trigger script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=夸克网盘福利日常收录任务
+http-request ^https:\/\/coral2\.quark\.cn\/quark\/(carbon|welfare)\/(v1|v2)\/signIn script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=夸克网盘空间签到收录任务
+http-request ^https:\/\/coral2\.quark\.cn\/quark\/welfare\/v2\/sleep\/trigger script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=夸克网盘睡眠打卡收录任务
+
+[Mitm]
+hostname = mp.weixin.qq.com,api.revenuecat.com,buy.itunes.apple.com,aphttps://glados.rocks/api/user/checkini.meiease.cn,*.meiyan.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,drive*.quark.cn,ssl-api.itranslateapp.com,*.kuwo.cn,ms.jr.jd.com,me-api.jd.com,api.m.jd.com,glados.rocks,coral2.quark.cn,drive-pc.quark.cn
