@@ -11,7 +11,7 @@ USER-AGENT,KWPlayer*,PROXY
 DOMAIN-SUFFIX,kuwo.cn,PROXY
 
 [Script]
-http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsga, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js, requires-body=true, timeout=10, tag=微信公众号去广告
+http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js
 http-response https://api.revenuecat.com/v1/(receipts|subscribers)/* script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/PureLibro.js, timeout=10, tag=PureLibro
 http-response ^https?:\/\/api\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/Revenuecat.js, timeout=10, tag=Revenuecat系列修改
 http-request ^https?:\/\/api\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/Revenuecat.js, timeout=10, tag=Revenuecat系列清理
@@ -33,4 +33,4 @@ http-request ^https:\/\/coral2\.quark\.cn\/quark\/(carbon|welfare)\/(v1|v2)\/sig
 http-request ^https:\/\/coral2\.quark\.cn\/quark\/welfare\/v2\/sleep\/trigger script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=夸克网盘睡眠打卡收录任务
 
 [Mitm]
-hostname = mp.weixin.qq.com,api.revenuecat.com,buy.itunes.apple.com,aphttps://glados.rocks/api/user/checkini.meiease.cn,*.meiyan.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,drive*.quark.cn,ssl-api.itranslateapp.com,*.kuwo.cn,ms.jr.jd.com,me-api.jd.com,api.m.jd.com,glados.rocks,coral2.quark.cn,drive-pc.quark.cn
+hostname = mp.weixin.qq.com,api.revenuecat.com,buy.itunes.apple.com,api.meiease.cn,*.meiyan.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,drive*.quark.cn,ssl-api.itranslateapp.com,*.kuwo.cn,ms.jr.jd.com,me-api.jd.com,api.m.jd.com,glados.rocks,coral2.quark.cn,drive-pc.quark.cn
