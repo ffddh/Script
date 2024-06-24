@@ -31,6 +31,10 @@ http-response ^https:\/\/drive-pc\.quark\.cn\/1\/clouddrive\/file\/sort script-p
 http-response ^https:\/\/coral2\.quark\.cn\/task\/trigger script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=夸克网盘福利日常收录任务
 http-request ^https:\/\/coral2\.quark\.cn\/quark\/(carbon|welfare)\/(v1|v2)\/signIn script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=夸克网盘空间签到收录任务
 http-request ^https:\/\/coral2\.quark\.cn\/quark\/welfare\/v2\/sleep\/trigger script-path=https://gist.githubusercontent.com/Sliverkiss/1589f69e675019b0b685a57a89de9ea5/raw/quarkV2.js, requires-body=true, timeout=60, tag=夸克网盘睡眠打卡收录任务
+http-response ^https?:\/\/((h5|api)\.xiuxiu|api-sub|api\.posters)\.meitu\.com\/.+\/(vip|user|h\d|center|home) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/mtxx.js, tag=美图秀秀
+
+
+
 
 [Mitm]
-hostname = mp.weixin.qq.com,api.revenuecat.com,buy.itunes.apple.com,api.meiease.cn,*.meiyan.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,drive*.quark.cn,ssl-api.itranslateapp.com,*.kuwo.cn,ms.jr.jd.com,me-api.jd.com,api.m.jd.com,glados.rocks,coral2.quark.cn,drive-pc.quark.cn
+hostname = mp.weixin.qq.com, api.revenuecat.com, buy.itunes.apple.com, api.meiease.cn, *.meiyan.com, api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com, drive*.quark.cn, ssl-api.itranslateapp.com, *.kuwo.cn, ms.jr.jd.com, me-api.jd.com, api.m.jd.com, glados.rocks, coral2.quark.cn, drive-pc.quark.cn, *.xiuxiu.meitu.com, api.posters.meitu.com, api-sub.meitu.com
